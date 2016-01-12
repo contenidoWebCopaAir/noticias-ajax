@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>News 2016</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/estilos-noticias-2016.css">
+</head>
+<body>
+
+  
+  <h1 class="pageTitle">News</h1>
+
+ 
+  <div class="tabYears">
+    <div class="year yearSelected">2016</div>
+    <div class="year">2015</div>
+    <div class="year">2014</div>
+    <div class="year">2013</div>
+    <div class="year">2012</div>
+    <div class="year">2011</div>
+    <div class="year">2010</div>
+  </div>
+
+  <div class="tab-border"></div>
+
+  <div class="articleContent">
+  <table class="tabla" border="0" cellspacing="0px" cellpadding="5px">
+      <tr valign="middle">
+        <th width="102" valign="middle" class="articleTitle" scope="col"><span>Date</span></th>
+        <th width="510" align="center" valign="middle" class="articleTitle" scope="col"><span>News</span></th>
+      </tr>
+    </table>
+
+  <div id="loadContent">
+    
+  </div>
+  
+  <p></p>
+  </div>
+
+  <script src="js/jquery-1.6.4.js"></script>
+  <script>
+      $(document).ready(function(){
+        var tabs = $(".tabYears > .year"),
+            loadContent = $("#loadContent");
+
+        //Cargar el año actual
+        loadContent.load('content/2016.html');
+        
+        tabs.click(function(e){
+
+          tabs.removeClass('yearSelected');
+          $(this).addClass('yearSelected');
+
+          loadContent.load('content/' + $(this).text() + '.html');
+
+          e.preventDefault();
+        });
+      });
+  </script>
+</body>
+</html>

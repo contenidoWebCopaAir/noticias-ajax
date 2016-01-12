@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Noticias 2016</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/estilos-noticias-2016-v3.css">
+</head>
+<body>
+
+  
+  <h1 class="pageTitle">Noticias</h1>
+
+ 
+  
+
+  
+
+  <div class="articleContent">
+  <table class="tabla" border="0" cellspacing="0">
+    
+      <tr>
+        <td colspan="2">
+          <div class="tabYears">
+            <div class="year yearSelected"><a href="/sites/CC/es/noticias/Pages/noticias-2016.aspx">2016</a></div>
+            <div class="year"><a href="/sites/CC/es/noticias/Pages/noticias-2015.aspx">2015</a></div>
+            <div class="year"><a href="/sites/CC/es/noticias/Pages/noticias-2014.aspx">2014</a></div>
+            <div class="year"><a href="/sites/CC/es/noticias/Pages/noticias-2013.aspx">2013</a></div>
+            <div class="year"><a href="/sites/CC/es/noticias/Pages/noticias-2012.aspx">2012</a></div>
+            <div class="year"><a href="/sites/CC/es/noticias/Pages/noticias-2011.aspx">2011</a></div>
+            <div class="year"><a href="/sites/CC/es/noticias/Pages/noticias-2010.aspx">2010</a></div>
+          </div>
+        </td>
+      </tr>
+    <tr>
+      <td colspan="2">
+        <div class="tab-border"></div>
+      </td>
+    </tr>
+    <tr valign="middle">
+      <th width="102" valign="middle" class="articleTitle" scope="col"><span>Fecha</span></th>
+      <th width="510" align="center" valign="middle" class="articleTitle" scope="col"><span>Noticia</span></th>
+    </tr>
+  </table>
+
+  <div id="loadContent">
+    
+  </div>
+  
+  <p></p>
+  </div>
+
+  <script src="js/jquery-1.6.4.js"></script>
+  <script>
+      $(document).ready(function(){
+        var tabs = $(".tabYears > .year"),
+            loadContent = $("#loadContent");
+
+        //Cargar el año actual
+        loadContent.load('content/2016.html');
+        
+        tabs.click(function(e){
+
+          tabs.removeClass('yearSelected');
+          $(this).addClass('yearSelected');
+
+          loadContent.load('content/' + $(this).text() + '.html');
+
+          e.preventDefault();
+        });
+      });
+  </script>
+</body>
+</html>
