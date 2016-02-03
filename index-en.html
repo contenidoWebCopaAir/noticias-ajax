@@ -1,3 +1,102 @@
+<script type="text/javascript" >
+/** 
+* author: Timothy Groves - http://www.brandspankingnew.net 
+* version: 1.0 - 2006-09-25 
+* 
+* requires: nothing 
+* 
+*/ 
+
+var useBSNns; 
+
+if (useBSNns) 
+{ 
+	if (typeof(bsn) == "undefined") 
+		bsn = {} 
+	var _bsn = bsn; 
+} 
+else 
+{ 
+	var _bsn = this; 
+} 
+
+
+
+_bsn.Crossfader = function (divs, fadetime, delay ) 
+{ 
+	this.nAct = -1; 
+	this.aDivs = divs; 
+
+	for (var i=0;i<divs.length;i++) 
+	{ 
+		document.getElementById(divs[i]).style.opacity = 0; 
+		document.getElementById(divs[i]).style.position = "absolute"; 
+		document.getElementById(divs[i]).style.filter = "alpha(opacity=0)"; 
+		document.getElementById(divs[i]).style.visibility = "hidden"; 
+	} 
+
+	this.nDur = fadetime; 
+	this.nDelay = delay; 
+
+	this._newfade(); 
+} 
+
+
+_bsn.Crossfader.prototype._newfade = function() 
+{ 
+	if (this.nID1) 
+		clearInterval(this.nID1); 
+
+	this.nOldAct = this.nAct; 
+	this.nAct++; 
+	if (!this.aDivs[this.nAct]) this.nAct = 0; 
+	document.getElementById( this.aDivs[this.nAct] ).style.visibility = "visible"; 
+
+	this.nInt = 50; 
+	this.nTime = 0; 
+
+	var p=this; 
+	this.nID2 = setInterval(function() { p._fade() }, this.nInt); 
+} 
+
+
+_bsn.Crossfader.prototype._fade = function() 
+{ 
+	this.nTime += this.nInt; 
+
+	var op = this._easeInOut(this.nTime, 0, 1, this.nDur); 
+	var ieop = op*100; 
+	document.getElementById( this.aDivs[this.nAct] ).style.opacity = op; 
+	document.getElementById( this.aDivs[this.nAct] ).style.filter = "alpha(opacity="+ieop+")"; 
+
+	if (this.nOldAct > -1) 
+	{ 
+		document.getElementById( this.aDivs[this.nOldAct] ).style.opacity = 1 - op; 
+		document.getElementById( this.aDivs[this.nOldAct] ).style.filter = "alpha(opacity="+(100 - ieop)+")"; 
+	} 
+
+	if (this.nTime == this.nDur) 
+	{ 
+		clearInterval( this.nID2 ); 
+
+		if (this.nOldAct > -1) 
+			document.getElementById( this.aDivs[this.nOldAct] ).style.visibility = "hidden"; 
+
+		var p=this; 
+		this.nID1 = setInterval(function() { p._newfade() }, this.nDelay); 
+	} 
+} 
+
+
+
+_bsn.Crossfader.prototype._easeInOut = function(t,b,c,d) 
+{ 
+	return c/2 * (1 - Math.cos(Math.PI*t/d)) + b; 
+} 
+</script> 
+<style type="text/css"> 
+	#wrapper {float:right ;width:330px; height:205px}  
+</style> 
 <h1 class="pageTitle" style="text-align:center">Copa Airlines is recognized for third consecutive year as the top on-time airline in Latin America</h1>
 
 <div class="subPageInfoBlock">
@@ -8,12 +107,45 @@
 	</ul>
 </div>
 
-<div class="articleBlock">
-	
-	<div class="articleContent">
-		<p><strong>Panama City, Panama, Jan. 8, 2016. </strong>Copa Airlines {NYSE: CPA}, a subsidiary of Copa Holdings, S. A, and member of the Star Alliance global airline network, was recognized by FlightStats, a leader in global flight and airport information services, for the third consecutive year as the top on-time airline in Latin America and Colombia. The award, a symbol of the airline’s commitment to its passengers, serves as a point of differentiation for Copa in the aviation industry worldwide.</p>
-
-		<p>Copa Airlines’ 2015 on-time performance rank of 91.02 percent in Latin America as a whole and 92.73 percent in Colombia surpasses its 2014 rates of 90.67 percent and 90.72 percent, respectively.  </p>
+<table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td valign="center">
+			<table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td>
+							<div id="wrapper"> 
+								<div class="cf_wrapper"> 
+									<div class="cf_element" id="cf1">
+										<img src="/sites/CC/en/PublishingImages/DSC_4488_thumb.jpg" height="205" width="330">
+									</div> 
+									<div class="cf_element" id="cf2">
+										<img src="/sites/CC/en/PublishingImages/HUBDELASAMERICAS_thumb.jpg" height="205" width="330">
+									</div>
+								</div> 
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</td>
+		<td valign="top">
+			<table style="width: 100%;" border="0" cellspacing="4" cellpadding="4">
+				<tbody>
+					<tr>
+						<td>
+							<div class="articleContent">
+								<p><strong>Panama City, Panama, Jan. 8, 2016. </strong>Copa Airlines {NYSE: CPA}, a subsidiary of Copa Holdings, S. A, and member of the Star Alliance global airline network, was recognized by FlightStats, a leader in global flight and airport information services, for the third consecutive year as the top on-time airline in Latin America and Colombia. The award, a symbol of the airline’s commitment to its passengers, serves as a point of differentiation for Copa in the aviation industry worldwide.</p>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<p>Copa Airlines’ 2015 on-time performance rank of 91.02 percent in Latin America as a whole and 92.73 percent in Colombia surpasses its 2014 rates of 90.67 percent and 90.72 percent, respectively.  </p>
 
 		<p>“This award is a result of the dedication and effort of the entire Copa Airlines team, whose principal objective is to meet our passengers’ needs,” said Pedro Heilbron, CEO of Copa Airlines. “Our coworkers have made on-time performance their personal focus and commitment, which enhances our world-class service and makes possible the connectivity we offer through the Hub of the Americas en Panama.”</p>
 
@@ -30,6 +162,9 @@
 		<p>FlightStats provides data services and solutions to customers serving the global travel industry. The company has established a leadership position as a provider of real-time global flight information, servicing airlines, airports, travel agencies, developers, consumers, and more. The company’s data is distinguished by its completeness, accuracy, and timeliness. </p>
 
 		<p>For more information about this year’s awards, click <a href="http://www.flightstats.com/company">here</a></p>
-	</div>
-	
-</div>
+		</td>
+	</tr>
+</table>
+<script type="text/javascript"> 
+	var cf = new Crossfader( new Array('cf1','cf2'), 2000, 2000 ); 
+</script>

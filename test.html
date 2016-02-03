@@ -1,0 +1,162 @@
+<script type="text/javascript" >
+/** 
+* author: Timothy Groves - http://www.brandspankingnew.net 
+* version: 1.0 - 2006-09-25 
+* 
+* requires: nothing 
+* 
+*/ 
+
+var useBSNns; 
+
+if (useBSNns) 
+{ 
+if (typeof(bsn) == "undefined") 
+bsn = {} 
+var _bsn = bsn; 
+} 
+else 
+{ 
+var _bsn = this; 
+} 
+
+
+
+_bsn.Crossfader = function (divs, fadetime, delay ) 
+{ 
+this.nAct = -1; 
+this.aDivs = divs; 
+
+for (var i=0;i<divs.length;i++) 
+{ 
+document.getElementById(divs[i]).style.opacity = 0; 
+document.getElementById(divs[i]).style.position = "absolute"; 
+document.getElementById(divs[i]).style.filter = "alpha(opacity=0)"; 
+document.getElementById(divs[i]).style.visibility = "hidden"; 
+} 
+
+this.nDur = fadetime; 
+this.nDelay = delay; 
+
+this._newfade(); 
+} 
+
+
+_bsn.Crossfader.prototype._newfade = function() 
+{ 
+if (this.nID1) 
+clearInterval(this.nID1); 
+
+this.nOldAct = this.nAct; 
+this.nAct++; 
+if (!this.aDivs[this.nAct]) this.nAct = 0; 
+document.getElementById( this.aDivs[this.nAct] ).style.visibility = "visible"; 
+
+this.nInt = 50; 
+this.nTime = 0; 
+
+var p=this; 
+this.nID2 = setInterval(function() { p._fade() }, this.nInt); 
+} 
+
+
+_bsn.Crossfader.prototype._fade = function() 
+{ 
+this.nTime += this.nInt; 
+
+var op = this._easeInOut(this.nTime, 0, 1, this.nDur); 
+var ieop = op*100; 
+document.getElementById( this.aDivs[this.nAct] ).style.opacity = op; 
+document.getElementById( this.aDivs[this.nAct] ).style.filter = "alpha(opacity="+ieop+")"; 
+
+if (this.nOldAct > -1) 
+{ 
+document.getElementById( this.aDivs[this.nOldAct] ).style.opacity = 1 - op; 
+document.getElementById( this.aDivs[this.nOldAct] ).style.filter = "alpha(opacity="+(100 - ieop)+")"; 
+} 
+
+if (this.nTime == this.nDur) 
+{ 
+clearInterval( this.nID2 ); 
+
+if (this.nOldAct > -1) 
+document.getElementById( this.aDivs[this.nOldAct] ).style.visibility = "hidden"; 
+
+var p=this; 
+this.nID1 = setInterval(function() { p._newfade() }, this.nDelay); 
+} 
+} 
+
+
+
+_bsn.Crossfader.prototype._easeInOut = function(t,b,c,d) 
+{ 
+return c/2 * (1 - Math.cos(Math.PI*t/d)) + b; 
+} 
+</script> 
+<style type="text/css"> 
+#wrapper {float:right ;width:330px; height:205px}  
+</style> 
+<h1 class="pageTitle" style="text-align: center;">Copa Airlines conmemora 20 años de operaciones en Cuba con ampliación de frecuencias</h1>
+<div class="subPageInfoBlock">
+<ul class="contentList" style="margin-top: 0; margin-bottom: 0;">
+<li><span style="font-family: times new roman; font-size: 16px;"><em>En sus 20 años de servicio a la isla, Copa Airlines anunció la adición de una nueva frecuencia a La Habana que operará a partir del próximo 11 de diciembre, llegando así a siete vuelos diarios hacia el Hub de las Américas, en la Ciudad de Panamá .</em></span></li>
+<li><span style="font-family: times new roman; font-size: 16px;"><em>Además, a partir del 29 de noviembre la aerolínea incrementará un vuelo semanal entre la ciudad de Santa Clara y Panamá llegando a 4 semanales.</em></span></li>
+<li><span style="font-family: times new roman; font-size: 16px;"><em>Copa Airlines conecta a Cuba con 72 destinos en 30 países de la región, a través de su Hub de las Américas </em></span></li>
+</ul>
+</div>
+<div class="articleBlock"><br />
+<table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="center">
+<table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<div id="wrapper"> 
+<div class="cf_wrapper"> 
+<div class="cf_element" id="cf1"><img src="/sites/CC/en/PublishingImages/10-anios-opreacion-cuba-1.jpg" height="205" width="330"></div> 
+<div class="cf_element" id="cf2"><img src="/sites/CC/en/PublishingImages/10-anios-opreacion-cuba-2.jpg" height="205" width="330"></div>
+<div class="cf_element" id="cf3"><img src="/sites/CC/en/PublishingImages/10-anios-opreacion-cuba-1.jpg" height="205" width="330"></div> 
+<div class="cf_element" id="cf4"><img src="/sites/CC/en/PublishingImages/10-anios-opreacion-cuba-2.jpg" height="205" width="330"></div>  
+ 
+</div> 
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign="top">
+<table style="width: 100%;" border="0" cellspacing="4" cellpadding="4">
+<tbody>
+<tr>
+<td>
+<div class="articleContent">
+<p style="padding: 5px;"><strong>La Habana, Cuba, 25 de noviembre de 2015</strong> &ndash; Copa Airlines {NYSE: CPA} subsidiaria de Copa Holdings, S.A., miembro de la red global de aerolíneas Star Alliance, en el marco de la conmemoración de sus 20 años de servicio aéreo ininterrumpido a la bella isla de Cuba, anunció la inclusión de una frecuencia diaria hacia La Habana y la adición de dos vuelos semanales hacia Santa Clara para llegar a 4 vuelos semanales desde el Hub de las Américas, ubicado en la Ciudad de Panamá. Además, como parte de las acciones relacionadas con la celebración de las dos décadas de conectar a Cuba con el Continente, Copa Airlines amplió sus oficinas comerciales y de venta en La Habana. </p>
+
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<p>“En el marco de estos 20 años de exitosa presencia en Cuba, estamos muy orgullosos de anunciar el incremento de las operaciones tanto a La Habana como a Santa Clara lo cual evidencia el compromiso de nuestra aerolínea con el desarrollo del turismo y los negocios de Cuba para continuar elevando su perfil como epicentro turístico y cultural en la región” comentó Pedro Heilbron, Presidente Ejecutivo de Copa Airlines. </p>
+<p>Los 20 años de operación de Copa Airlines hacia Cuba son el relato de una historia de éxito y crecimiento sostenido. Es así como, en 1995, cuando tuvo lugar el vuelo inaugural, Copa ofrecía sólo tres vuelos semanales a la Isla. En la actualidad, con el anuncio de las nuevas frecuencias, la aerolínea, a finales de noviembre, llegará a 4 vuelos semanales desde Santa Clara hacia el Hub de las Américas. De la misma manera, a partir del 11 de diciembre los vuelos de La Habana hacia la Ciudad de Panamá se incrementarán a 7 frecuencias diarias.</p>
+<p>La experiencia de vuelo también gozó de un notable avance. Los primeros pasajeros que volaron con Copa Airlines hacia Cuba lo hicieron a bordo de aviones Boeing 737-200, con capacidad para transportar a 106 pasajeros en cabina principal. Hoy en día, todos los vuelos son operados con modernas aeronaves Boeing 737-800 Next Generation, con capacidad para transportar a 160 pasajeros, 16 en clase ejecutiva y 144 en la cabina principal.</p>
+<p>Las buenas noticias y la celebración de este suceso histórico tuvieron lugar en las ampliadas oficinas de Copa Airlines, ubicadas en el Centro de Negocios Miramar. El evento contó con la presencia del Sr. Pedro Heilbron, Presidente de Copa Airlines; el Sr Manuel Marrero, Ministro de Turismo de la República de Cuba; Alfredo Cordero, Presidente del Instituto de Aeronáutica Civil de Cuba; importantes miembros del cuerpo diplomático e invitados especiales y aliados estratégicos de la Aerolínea.</p>
+<p>Copa Airlines ofrece actualmente servicio a 74 destinos en 31 países de Norte, Centro, Sur América y el Caribe desde el Hub de las Américas, en la Ciudad de Panamá. Así mismo, los pasajeros miembros de ConnectMiles, el nuevo programa de fidelización de la Aerolínea, gozan de múltiples beneficios que ofrece Star Alliance, que incluye una amplia red de rutas de 1,330 destinos adicionales en 192 países, así como más de 1.000 salas VIP a nivel mundial.</p>
+<p>Desde el Hub de las Américas, Copa Airlines ofrece más vuelos internacionales que cualquier otro centro de conexiones aéreo en América Latina.  En ese sentido, los vuelos diarios entre La Habana y Panamá están programados para ofrecer las conexiones más convenientes hacia los 72 destinos en 30 países que componen la región de Centro y Sur América y selectas ciudades en los Estados Unidos.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<script type="text/javascript"> 
+var cf = new Crossfader( new Array('cf1','cf2','cf3', 'cf4'), 2000, 2000 ); 
+</script> 

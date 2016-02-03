@@ -1,0 +1,92 @@
+#leftCol h1.pageTitle { float:none !important; }
+
+.tabYears {
+  margin-left: 6px;
+  margin-bottom: 2.1em;  
+}
+
+.year { 
+  width:98px;
+  height:31px;
+  float:left;
+  margin-right: -8px;
+  margin-bottom: 5px;
+}
+
+.year a {
+  text-decoration: none;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #fff;
+  background-image: url('/sites/CC/interactivelibrary/noticias/bg4_tab.png'); 
+  /*background-image: url('../img/bg4_tab.png'); */
+  margin:0; 
+  padding: 11px;
+  padding-top: 7px;
+  padding-left: 23px;
+  margin-right: 0.5em;
+  display:block;
+}
+
+a:hover {
+  background-position: 0px -46px;
+  color:#004982;
+}
+
+.yearSelected a {
+  background-image: url('/sites/CC/interactivelibrary/noticias/bg4_tab.png');
+  /*background-image: url('../img/bg4_tab.png'); */
+  background-position: 0px -46px;
+  color:#004982;
+}
+
+ #imvustylez-layout-container{
+  border: none !important;
+  height:46px;
+  margin: none;
+  outline: none !important;
+  width:644px;
+  }
+
+.tab-border {
+  background-image: url('/sites/CC/en/PublishingImages/tab-equipaje/submenu.png');
+  /*background-image: url('../img/submenu.png');*/
+  margin-top: -2px;
+  margin-right: 0px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  padding: 0px;
+  width: 642px;
+  height: 38px;
+}
+
+
+
+    .tabla {
+      margin:0 0 0 5px; 
+      width:632px;
+    }
+    .tabla th {
+      background-color:#004982;
+      color:#FFF !important;
+      padding:5px;
+      text-align:left;
+    }
+    .tabla .fondo2 td {
+      background-color:#e5ecf2;
+      padding:5px;
+    }
+    .tabla .fondo1 td {
+      background-color:#fff;
+      padding:5px;
+    }
+    .subLPLineInfonone {
+      border-bottom-color:#7FA4BF;
+      border-bottom-style:solid;
+      border-bottom-width:1px;
+      margin-bottom:11px;
+      padding-bottom:4px;
+    }
+    #espacio { 
+      margin-left: 8px;
+    }

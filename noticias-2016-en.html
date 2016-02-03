@@ -1,0 +1,64 @@
+  
+  <h1 class="pageTitle">News</h1>
+
+  <div class="articleContent">
+  <table class="tabla" border="0" cellspacing="0">
+      <tr>
+        <td colspan="2">
+          <div class="tabYears">
+            <div class="year yearSelected"><a href="/sites/CC/en/noticias/Pages/noticias-2016.aspx">2016</a></div>
+            <div class="year"><a href="/sites/CC/en/noticias/Pages/noticias-2015.aspx">2015</a></div>
+            <div class="year"><a href="/sites/CC/en/noticias/Pages/noticias-2014.aspx">2014</a></div>
+            <div class="year"><a href="/sites/CC/en/noticias/Pages/noticias-2013.aspx">2013</a></div>
+            <div class="year"><a href="/sites/CC/en/noticias/Pages/noticias-2012.aspx">2012</a></div>
+            <div class="year"><a href="/sites/CC/en/noticias/Pages/noticias-2011.aspx">2011</a></div>
+            <div class="year"><a href="/sites/CC/en/noticias/Pages/noticias-2010.aspx">2010</a></div>
+          </div>
+        </td>
+      </tr>
+    <tr>
+      <td colspan="2">
+        <div class="tab-border"></div>
+      </td>
+    </tr>
+    <tr valign="middle">
+      <th width="102" valign="middle" class="articleTitle" scope="col"><span>Date</span></th>
+      <th width="510" align="center" valign="middle" class="articleTitle" scope="col"><span>News</span></th>
+    </tr>
+  </table>
+
+  <div id="loadContent">
+   <table class="tabla" border="0" cellspacing="0px" cellpadding="5px">
+  <tr class="fondo1">
+     <td class="subLPLineInfonone" width="102"><strong>January 8</strong></td>
+      <td class="subLPLineInfonone" width="510">
+        <a href="copa-airlines-reconocida-por-tercer-ano-consecutivo-como-la-aerolinea-mas-puntual-de-america-latina.aspx" target="_self">
+        Copa Airlines is recognized for third consecutive year as the top on-time airline in Latin America
+        </a>
+      </td>
+  </tr>
+</table>
+  </div>
+  
+  <p></p>
+  </div>
+
+  <script>
+      $(document).ready(function(){
+        var tabs = $(".tabYears > .year"),
+            loadContent = $("#loadContent");
+
+        //Cargar el año actual
+        loadContent.load('2016.html');
+        
+        tabs.click(function(e){
+
+          tabs.removeClass('yearSelected');
+          $(this).addClass('yearSelected');
+
+          loadContent.load( $(this).text() + '.html');
+
+          e.preventDefault();
+        });
+      });
+  </script>

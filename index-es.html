@@ -1,7 +1,106 @@
+<script type="text/javascript" >
+/** 
+* author: Timothy Groves - http://www.brandspankingnew.net 
+* version: 1.0 - 2006-09-25 
+* 
+* requires: nothing 
+* 
+*/ 
+
+var useBSNns; 
+
+if (useBSNns) 
+{ 
+	if (typeof(bsn) == "undefined") 
+		bsn = {} 
+	var _bsn = bsn; 
+} 
+else 
+{ 
+	var _bsn = this; 
+} 
+
+
+
+_bsn.Crossfader = function (divs, fadetime, delay ) 
+{ 
+	this.nAct = -1; 
+	this.aDivs = divs; 
+
+	for (var i=0;i<divs.length;i++) 
+	{ 
+		document.getElementById(divs[i]).style.opacity = 0; 
+		document.getElementById(divs[i]).style.position = "absolute"; 
+		document.getElementById(divs[i]).style.filter = "alpha(opacity=0)"; 
+		document.getElementById(divs[i]).style.visibility = "hidden"; 
+	} 
+
+	this.nDur = fadetime; 
+	this.nDelay = delay; 
+
+	this._newfade(); 
+} 
+
+
+_bsn.Crossfader.prototype._newfade = function() 
+{ 
+	if (this.nID1) 
+		clearInterval(this.nID1); 
+
+	this.nOldAct = this.nAct; 
+	this.nAct++; 
+	if (!this.aDivs[this.nAct]) this.nAct = 0; 
+	document.getElementById( this.aDivs[this.nAct] ).style.visibility = "visible"; 
+
+	this.nInt = 50; 
+	this.nTime = 0; 
+
+	var p=this; 
+	this.nID2 = setInterval(function() { p._fade() }, this.nInt); 
+} 
+
+
+_bsn.Crossfader.prototype._fade = function() 
+{ 
+	this.nTime += this.nInt; 
+
+	var op = this._easeInOut(this.nTime, 0, 1, this.nDur); 
+	var ieop = op*100; 
+	document.getElementById( this.aDivs[this.nAct] ).style.opacity = op; 
+	document.getElementById( this.aDivs[this.nAct] ).style.filter = "alpha(opacity="+ieop+")"; 
+
+	if (this.nOldAct > -1) 
+	{ 
+		document.getElementById( this.aDivs[this.nOldAct] ).style.opacity = 1 - op; 
+		document.getElementById( this.aDivs[this.nOldAct] ).style.filter = "alpha(opacity="+(100 - ieop)+")"; 
+	} 
+
+	if (this.nTime == this.nDur) 
+	{ 
+		clearInterval( this.nID2 ); 
+
+		if (this.nOldAct > -1) 
+			document.getElementById( this.aDivs[this.nOldAct] ).style.visibility = "hidden"; 
+
+		var p=this; 
+		this.nID1 = setInterval(function() { p._newfade() }, this.nDelay); 
+	} 
+} 
+
+
+
+_bsn.Crossfader.prototype._easeInOut = function(t,b,c,d) 
+{ 
+	return c/2 * (1 - Math.cos(Math.PI*t/d)) + b; 
+} 
+</script> 
+<style type="text/css"> 
+	#wrapper {float:right ;width:330px; height:205px}  
+</style> 
 <h1 class="pageTitle" style="text-align:center">Copa Airlines Reconocida por tercer año consecutivo como la aerolínea más puntual de América Latina.</h1>
 
 <div class="subPageInfoBlock">
-	<ul class="contentList">
+	<ul class="contentList" style="margin-top: 0; margin-bottom: 0;">
 		<li><span style="font-family: times new roman; font-size: 16px;">La aerolínea fue reconocida como “la más puntual de Latinoamérica”, al ubicarse en el primer lugar en el ranking “On-Time Performance Service 2015” que premia la reconocida consultora internacional FlightStats.</span></li>
 		<li><span style="font-family: times new roman; font-size: 16px;">Copa continúa con un excelente desempeño, logrando un promedio de puntualidad del 91,02%, uno de los más altos del mundo, mejorando los resultados del 2014, año en el que obtuvo 90.29% </span></li>
 		<li><span style="font-family: times new roman; font-size: 16px;">Este reconocimiento es producto de la dedicación y trabajo de todos los colaboradores de Copa Airlines</span></li>
@@ -9,25 +108,68 @@
 </div>
 
 <div class="articleBlock">
-	
-	<div class="articleContent">
-		<p><strong>Ciudad de Panamá, 07 de enero, 2016.</strong> Copa Airlines {NYSE: CPA} subsidiaria de Copa Holdings, S. A, y miembro de la red global de aerolíneas Star Alliance, es reconocida por la compañía internacional FlightStats, por tercera año consecutivo, como la aerolínea más puntual en América Latina y Colombia. Este galardón simboliza y consolida el compromiso de la aerolínea con sus pasajeros, convirtiéndose en su principal factor de diferenciación en la industria de la aviación mundial.</p>
 
-		<p>Con un índice de puntualidad del 91.02% en Latinoamérica y del 92,73% en Colombia, Copa Airlines se hizo acreedora a este reconocimiento por tercer año consecutivo, mejorando inclusive sus propios registros del 2014, año en el que logró 90.67% y 90,72% respectivamente.</p>
+	<table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+		<tbody>
+			<tr>
+				<td valign="center">
+					<table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+							<tr>
+								<td>
+									<div id="wrapper"> 
+										<div class="cf_wrapper"> 
+											<div class="cf_element" id="cf1">
+												<img src="/sites/CC/en/PublishingImages/DSC_4488_thumb.jpg" height="205" width="330">
+											</div> 
+											<div class="cf_element" id="cf2">
+												<img src="/sites/CC/en/PublishingImages/HUBDELASAMERICAS_thumb.jpg" height="205" width="330">
+											</div>
+										</div> 
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+				<td valign="top">
+					<table style="width: 100%;" border="0" cellspacing="4" cellpadding="4">
+						<tbody>
+							<tr>
+								<td>
+									<div class="articleContent">
+										<p style="padding:5px"><strong>Ciudad de Panamá, 07 de enero, 2016.</strong> Copa Airlines {NYSE: CPA} subsidiaria de Copa Holdings, S. A, y miembro de la red global de aerolíneas Star Alliance, es reconocida por la compañía internacional FlightStats, por tercera año consecutivo, como la aerolínea más puntual en América Latina y Colombia. Este galardón simboliza y consolida el compromiso de la aerolínea con sus pasajeros, convirtiéndose en su principal factor de diferenciación en la industria de la aviación mundial.</p>
 
-		<p>Acerca de este excepcional resultado, Pedro Heilbron, Presidente Ejecutivo de Copa Airlines acotó que “este reconocimiento es producto de la dedicación y trabajo de todos los colaboradores de Copa Airlines, quienes, con el principal objetivo de satisfacer las necesidades de nuestros pasajeros, han hecho de la puntualidad su enfoque y compromiso personal, de esta forma fortalecemos el servicio de clase mundial y potenciamos la conectividad que ofrecemos a todos nuestros pasajeros a través del Hub de las Américas, en Panamá”. </p>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p>Con un índice de puntualidad del 91.02% en Latinoamérica y del 92,73% en Colombia, Copa Airlines se hizo acreedora a este reconocimiento por tercer año consecutivo, mejorando inclusive sus propios registros del 2014, año en el que logró 90.67% y 90,72% respectivamente.</p>
 
-		<p>Con las cifras ofrecidas por FlightStats, empresa reconocida a nivel global por la veracidad de sus estudios y recolección de datos en el campo de la aviación internacional, Copa Airlines también se convierte en una de las aerolíneas líderes en puntualidad a nivel mundial. Lo que es un reflejo del arduo trabajo y dedicación de todo el equipo de Copa Airlines en aire y tierra, en cada uno de los 73 destinos en los 31 países a los que sirve la empresa en Norte, Centro, Sur América y el Caribe.</p>
+					<p>Acerca de este excepcional resultado, Pedro Heilbron, Presidente Ejecutivo de Copa Airlines acotó que “este reconocimiento es producto de la dedicación y trabajo de todos los colaboradores de Copa Airlines, quienes, con el principal objetivo de satisfacer las necesidades de nuestros pasajeros, han hecho de la puntualidad su enfoque y compromiso personal, de esta forma fortalecemos el servicio de clase mundial y potenciamos la conectividad que ofrecemos a todos nuestros pasajeros a través del Hub de las Américas, en Panamá”. </p>
 
-		<p>Este galardón reconoce a las mejores aerolíneas a nivel mundial por demostrar su compromiso con la puntualidad de los vuelos. "FlightStats está orgullosa de anunciar que Copa Airlines una vez más ha sido la número uno en puntualidad en el año 2015, entre las principales aerolíneas de América Latina. Esto refleja un verdadero compromiso por parte de Copa Airlines con la excelencia operacional y el servicio al cliente", comentó Jim Hetzel, Vicepresidente de Aviación y Distribución, de FlightStats.</p>
+					<p>Con las cifras ofrecidas por FlightStats, empresa reconocida a nivel global por la veracidad de sus estudios y recolección de datos en el campo de la aviación internacional, Copa Airlines también se convierte en una de las aerolíneas líderes en puntualidad a nivel mundial. Lo que es un reflejo del arduo trabajo y dedicación de todo el equipo de Copa Airlines en aire y tierra, en cada uno de los 73 destinos en los 31 países a los que sirve la empresa en Norte, Centro, Sur América y el Caribe.</p>
 
-		<p>Copa Airlines, luego de haber sido reconocida como la “Aerolínea más puntual de Latinoamérica” en 2013 y en 2014 por FlightStats, consolida la puntualidad y el cumplimiento como dos fortalezas que la diferencian en el mercado regional y le otorga a la compañía el privilegio de estar dentro de las 3 aerolíneas más puntuales del mundo. “Recibimos por tercera vez consecutiva este título y lo compartimos con el país, para que al igual que nosotros, se llenen de orgullo con este gran logro alcanzado”, agregó el Heilbron.</p>
+					<p>Este galardón reconoce a las mejores aerolíneas a nivel mundial por demostrar su compromiso con la puntualidad de los vuelos. "FlightStats está orgullosa de anunciar que Copa Airlines una vez más ha sido la número uno en puntualidad en el año 2015, entre las principales aerolíneas de América Latina. Esto refleja un verdadero compromiso por parte de Copa Airlines con la excelencia operacional y el servicio al cliente", comentó Jim Hetzel, Vicepresidente de Aviación y Distribución, de FlightStats.</p>
 
-		<p>Para establecer el resultado del ranking se tomó en cuenta el número de vuelos regulares, el número de vuelos que fueron realizados con éxito y se comparó con la cifra de vuelos que partieron a los 15 minutos de la hora de salida programada, así como el número de vuelos que llegaron dentro de los 14 minutos de tiempo de llegada.</p>
+					<p>Copa Airlines, luego de haber sido reconocida como la “Aerolínea más puntual de Latinoamérica” en 2013 y en 2014 por FlightStats, consolida la puntualidad y el cumplimiento como dos fortalezas que la diferencian en el mercado regional y le otorga a la compañía el privilegio de estar dentro de las 3 aerolíneas más puntuales del mundo. “Recibimos por tercera vez consecutiva este título y lo compartimos con el país, para que al igual que nosotros, se llenen de orgullo con este gran logro alcanzado”, agregó el Heilbron.</p>
 
-		<p>FlightStats se ha posicionado durante los últimos seis años como el proveedor líder de datos de aviación en la industria internacional,  debido a su especialización en la recopilación y distribución de datos en tiempo real y global facilitando información completa, precisa y oportuna. La empresa posee los mejores datos subyacentes de la industria aérea mundial.</p>
+					<p>Para establecer el resultado del ranking se tomó en cuenta el número de vuelos regulares, el número de vuelos que fueron realizados con éxito y se comparó con la cifra de vuelos que partieron a los 15 minutos de la hora de salida programada, así como el número de vuelos que llegaron dentro de los 14 minutos de tiempo de llegada.</p>
 
-		<p>Mayor información sobre los premios de este año <a href="http://www.flightstats.com/company">aquí</a></p>
-	</div>
+					<p>FlightStats se ha posicionado durante los últimos seis años como el proveedor líder de datos de aviación en la industria internacional,  debido a su especialización en la recopilación y distribución de datos en tiempo real y global facilitando información completa, precisa y oportuna. La empresa posee los mejores datos subyacentes de la industria aérea mundial.</p>
+
+					<p>Mayor información sobre los premios de este año <a href="http://www.flightstats.com/company">aquí</a></p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 	
 </div>
+<script type="text/javascript"> 
+	var cf = new Crossfader( new Array('cf1','cf2'), 2000, 2000 ); 
+</script>

@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Noticias 2016</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/estilos-noticias-2016-v3.css">
-</head>
-<body>
-
-  
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/estilos_noticias_180116v2.css">
+  </head>
+  <body>
   <h1 class="pageTitle">Noticias</h1>
-
- 
-  
-
-  
 
   <div class="articleContent">
   <table class="tabla" border="0" cellspacing="0">
-    
       <tr>
         <td colspan="2">
           <div class="tabYears">
@@ -43,14 +34,22 @@
   </table>
 
   <div id="loadContent">
-    
+    <table class="tabla" border="0" cellspacing="0px" cellpadding="5px">
+      <tr class="fondo1">
+         <td class="subLPLineInfonone" width="102"><strong>8 de Enero</strong></td>
+          <td class="subLPLineInfonone" width="510">
+            <a href="copa-airlines-reconocida-por-tercer-ano-consecutivo-como-la-aerolinea-mas-puntual-de-america-latina.aspx" target="_self">
+            Copa Airlines es reconocida por tercer año consecutivo como la aerolínea más puntual de América Latina
+            </a>
+          </td>
+      </tr>
+    </table>
   </div>
   
   <p></p>
   </div>
-
   <script src="js/jquery-1.6.4.js"></script>
-  <script>
+  <script type="text/javascript">
       $(document).ready(function(){
         var tabs = $(".tabYears > .year"),
             loadContent = $("#loadContent");
@@ -63,11 +62,13 @@
           tabs.removeClass('yearSelected');
           $(this).addClass('yearSelected');
 
-          loadContent.load('content/' + $(this).text() + '.html');
+          loadContent.load( 'content/' + $(this).text() + '.html');
 
           e.preventDefault();
         });
       });
   </script>
-</body>
-</html>
+
+  </body>
+  </html>
+  

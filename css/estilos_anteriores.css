@@ -1,0 +1,99 @@
+@charset "utf-8";
+/* CSS Document */
+a img
+{
+border: none !important;
+margin: 0;
+outline: none !important;
+}
+
+#mainframe{
+	float:left;
+}
+#opc2014 a {
+	background-image:url('/sites/CC/en/PublishingImages/tab-noticias/news-tab_2014.jpg');
+	border: 0px;
+	height:46px;
+	margin-top: 0px; margin-right: 2px; margin-bottom: 0px;
+	padding:0;
+	width:122px;
+	}
+#opc2014 a:hover {	
+		background-position: 0px -46px; 
+		border: 0px;
+		height:46px;
+		margin-top: 0px; margin-right: 2px; margin-bottom: 0px; 
+		padding:0;
+		width:122px;
+	}
+#opc2013 a {
+	background-image:url('/sites/CC/en/PublishingImages/tab-noticias/news-tab-2013.jpg');
+	border: 0px;
+	height:46px;
+	margin-top: 0px; margin-right: 2px; margin-bottom: 0px;
+	padding:0;
+	width:122px;
+	}
+#opc2013 a:hover {	
+		background-position: 0px -46px; 
+		border: 0px;
+		height:46px;
+		margin-top: 0px; margin-right: 2px; margin-bottom: 0px; 
+		padding:0;
+		width:122px;
+	}
+#opc2012 a {
+	background-image:url('/sites/CC/en/PublishingImages/tab-noticias/news-tab-2012.jpg');
+	border: 0px;
+	height:46px;
+	margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 1px;
+	padding:0;
+	width:122px;
+	}
+#opc2012 a:hover {	
+	background-position: 0px -46px; 
+	border: 0px;
+	height:46px;
+	margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 1px;
+	padding:0;
+	width:122px;
+	}
+#opc2011 a {
+	background-image:url('/sites/CC/en/PublishingImages/tab-noticias/news-tab-2011.jpg');
+	border: 0px;
+	height:46px;
+	margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 1px;
+	padding:0;
+	width:122px;
+	}
+#opc2011 a:hover {	
+	background-position: 0px -46px;  
+	border: 0px;
+	height:46px;
+	margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 1px;
+	padding:0;
+	width:122px;
+	}
+#opc2010 a {
+	background-image:url('/sites/CC/en/PublishingImages/tab-noticias/news-tab-2010.jpg');
+	border: 0px;
+	height:46px;
+	margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 1px;
+	padding:0;
+	width:122px;
+	}
+#opc2010 a:hover {
+	background-position: 0px -46px; 
+	border: 0px;
+	height:46px;
+	margin-top: 0px; margin-right: 2px; margin-bottom: 0px; margin-left: 1px;
+	padding:0;
+	width:122px;
+	}
+#imvustylez-layout-container{
+	border: none !important;
+	height:46px;
+	margin: none;
+	outline: none !important;
+	width:644px;
+	}
