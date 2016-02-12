@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-  <link rel="stylesheet" type="text/css" href="css/estilos_noticias_180116v2.css">
-</head>
-<body>
+
   <h1 class="pageTitle">Noticias</h1>
 
     <div class="articleContent">
@@ -35,60 +29,64 @@
 
       <div id="loadContent">
         <table class="tabla" border="0" cellspacing="0px" cellpadding="5px">
-          <tr class="fondo1">
-            <td class="subLPLineInfonone" width="102"><strong>29 de Enero</strong></td>
-            <td class="subLPLineInfonone" width="510">
-              <a href="/sites/cc/es/noticias/pages/copa-airlines-iniciara-vuelos-directos-a-la-ciudad-de-holguin.aspx" target="_self">
-                Copa Airlines anuncia nueva ruta a la ciudad de HolguÃ­n, su tercer Destino en Cuba
-              </a>
-            </td>
-          </tr>
-          <tr class="fondo2">
-            <td class="subLPLineInfonone" width="102"><strong>28 de Enero</strong></td>
-            <td class="subLPLineInfonone" width="510">
-              <a href="/sites/cc/es/noticias/pages/alerta-internacional-por-el-virus-del-zika.aspx" target="_self">Alerta internacional por el Virus del ZIKA</a>
-            </td>
-          </tr>
-          <tr class="fondo1">
-            <td class="subLPLineInfonone" width="102"><strong>27 de Enero</strong></td>
-            <td class="subLPLineInfonone" width="510">
-              <a href="/sites/cc/es/noticias/pages/la-aerolinea-mas-puntual-de-latinoamerica.aspx" target="_self">
-                La empresa OAG tambiÃ©n reconociÃ³ a Copa Airlines como la aerolÃ­nea mÃ¡s puntual de AmÃ©rica Latina y la segunda a nivel Mundial
-              </a>
-            </td>
-          </tr>
-          <tr class="fondo2">
-            <td class="subLPLineInfonone" width="102"><strong>8 de Enero</strong></td>
-            <td class="subLPLineInfonone" width="510">
-              <a href="copa-airlines-reconocida-por-tercer-ano-consecutivo-como-la-aerolinea-mas-puntual-de-america-latina.aspx" target="_self">
-              Copa Airlines es reconocida por tercer aÃ±o consecutivo como la aerolÃ­nea mÃ¡s puntual de AmÃ©rica Latina
-              </a>
-            </td>
-          </tr>
-        </table>
+  <tr class="fondo1">
+     <td class="subLPLineInfonone" width="102"><strong>29 de Enero</strong></td>
+      <td class="subLPLineInfonone" width="510">
+        <a href="/sites/cc/es/noticias/pages/copa-airlines-iniciara-vuelos-directos-a-la-ciudad-de-holguin.aspx" target="_self">
+        Copa Airlines anuncia nueva ruta a la ciudad de Holguín, su tercer Destino en Cuba
+        </a>
+      </td>
+  </tr>
+  <tr class="fondo2">
+     <td class="subLPLineInfonone" width="102"><strong>28 de Enero</strong></td>
+      <td class="subLPLineInfonone" width="510">
+        <a href="/sites/cc/es/noticias/pages/alerta-internacional-por-el-virus-del-zika.aspx" target="_self">Alerta internacional por el Virus del ZIKA</a>
+      </td>
+  </tr>
+  <tr class="fondo1">
+     <td class="subLPLineInfonone" width="102"><strong>27 de Enero</strong></td>
+      <td class="subLPLineInfonone" width="510">
+        <a href="/sites/cc/es/noticias/pages/la-aerolinea-mas-puntual-de-latinoamerica.aspx" target="_self">
+        La empresa OAG también reconoció a Copa Airlines como la aerolínea más puntual de América Latina y la segunda a nivel Mundial
+        </a>
+      </td>
+  </tr>
+  <tr class="fondo2">
+     <td class="subLPLineInfonone" width="102"><strong>8 de Enero</strong></td>
+      <td class="subLPLineInfonone" width="510">
+        <a href="copa-airlines-reconocida-por-tercer-ano-consecutivo-como-la-aerolinea-mas-puntual-de-america-latina.aspx" target="_self">
+        Copa Airlines es reconocida por tercer año consecutivo como la aerolínea más puntual de América Latina
+        </a>
+      </td>
+  </tr>
+  <tr class="fondo1">
+     <td class="subLPLineInfonone" width="102"><strong>12 de Febrero</strong></td>
+      <td class="subLPLineInfonone" width="510">
+        <a href="/sites/CC/es/noticias/Pages/pases-abordar-moviles-lima.aspx" target="_self">
+        Copa Airlines implementa el servicio de pases de abordar móviles en Lima
+        </a>
+      </td>
+  </tr>
+</table>
       </div>
 
     </div>
-<script src="js/jquery-1.6.4.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
     var tabs = $(".tabYears > .year"),
     loadContent = $("#loadContent");
 
         //Cargar el año actual
-        loadContent.load('content/2016.html');
+        loadContent.load('2016.html');
         
         tabs.click(function(e){
 
           tabs.removeClass('yearSelected');
           $(this).addClass('yearSelected');
 
-          loadContent.load( 'content/' + $(this).text() + '.html');
+          loadContent.load( $(this).text() + '.html');
 
           e.preventDefault();
         });
       });
 </script>
-
-</body>
-</html>
